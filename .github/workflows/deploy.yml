@@ -1,31 +1,20 @@
-name: Deploy WordPress Theme
-
-on:
+on: 
   push:
     branches:
       - main
-
+      
+name: 🚀 Deploy website on push
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # Step 2: Set up SSH
-      - name: Set up SSH agent
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      # Step 3: Deploy via SFTP
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.5
-        with:
-          server: 188.166.38.114
-          username: ploi
-          protocol: sftp
-          local-dir: D:\sites\test\wp-content\themes\autodeploytest
-          server-dir: /home/ploi/autodeploytest
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 188.166.38.114
+        username: ploi
+        password: ${{ secrets.SSH_PRIVATE_KEY }}
