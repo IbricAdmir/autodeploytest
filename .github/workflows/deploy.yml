@@ -22,10 +22,10 @@ jobs:
 
       # Step 3: Deploy via SFTP
       - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
-          server: 188.166.38.114
+          server: 
           username: ploi
           protocol: sftp
-          local-dir: ./wp-theme-folder
-          server-dir: /home/ploi/public_html/wp-content/themes/your-theme-folder
+          local-dir: D:\sites\test\wp-content\themes\autodeploytest
+          server-dir: /home/ploi/autodeploytest
