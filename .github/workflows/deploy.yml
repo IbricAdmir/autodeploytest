@@ -18,3 +18,4 @@ jobs:
         server: 188.166.38.114
         username: ploi
         password: ${{ secrets.SSH_PRIVATE_KEY }}
+        protocol: sftp
