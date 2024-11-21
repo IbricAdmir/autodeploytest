@@ -12,7 +12,7 @@ jobs:
     steps:
       # Step 1: Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Set up SSH
       - name: Set up SSH agent
@@ -24,7 +24,7 @@ jobs:
       - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
-          server: 
+          server: 188.166.38.114
           username: ploi
           protocol: sftp
           local-dir: D:\sites\test\wp-content\themes\autodeploytest
